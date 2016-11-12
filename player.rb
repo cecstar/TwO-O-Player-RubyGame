@@ -1,10 +1,17 @@
 class Player
-  attr_reader :name
-  attr_accessor :lives
+  attr_reader :lives
 
-  def initialize(name)
-    @name = name
+  def initialize
     @lives = 3
+  end
+
+  def lose_life
+    @lives -= 1
+  end
+
+  def die?
+  @players.any? { |p| p.lives <= 0 }
+  puts "----- Game Over! -----"
 
   end
 
