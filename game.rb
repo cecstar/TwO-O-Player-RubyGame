@@ -6,7 +6,7 @@ class Game
   def start
     create_players
     play_rounds
-    print_scores
+    print_final
   end
 
   def create_players
@@ -42,6 +42,24 @@ class Game
 
   def print_scores
     puts "P1: #{@players[0].lives}/3 vs P2: #{@players[1].lives}/3"
+  end
+
+  def print_final
+    print_scores
+
+    player1 = @players[0]
+    player2 = @players[1]
+
+    winner = nil
+    if player1.lives > 0
+      winner = player1
+    else
+      winner = player2
+    end
+
+    puts "Player #{winner.id} wins with a score of #{winner.lives}!"
+    puts "----- Game Over -----"
+    puts "Good bye!"
   end
 
 end
